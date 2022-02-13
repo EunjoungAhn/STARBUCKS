@@ -123,3 +123,27 @@ new Swiper('.awards .swiper-container', {
     nextEl: '.awards .swiper-next' // 다음 버튼 선택자
   }
 })
+
+/**
+ * Promotion 슬라이드 토글 기능
+ */
+// 슬라이드 영역 요소 검색!
+const promotionEl = document.querySelector('.promotion')
+// 슬라이드 영역를 토글하는 버튼 검색!
+const promotionToggleBtn = document.querySelector('.toggle-promotion')
+// 슬라이드 영역 숨김 여부 기본값!
+let isHidePromotion = false //보이고 있다.
+// 토글 버튼을 클릭하면,
+promotionToggleBtn.addEventListener('click', function () {
+  //특정 값을 반대로 적용하기 위해서, !표는 변수 앞에 붙인다. true -> false 으로
+  // 슬라이드 영역 숨김 여부를 반댓값으로 할당!
+  isHidePromotion = !isHidePromotion
+  // 요소를 숨겨야 하면,
+  //보이거나 안보이는 것은 클래스만으로 제어하는 것이 좋다.
+  if (isHidePromotion) {
+    promotionEl.classList.add('hide')
+  // 요소가 보여야 하면,
+  } else {
+    promotionEl.classList.remove('hide')
+  }
+})
