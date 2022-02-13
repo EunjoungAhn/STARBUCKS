@@ -1,12 +1,12 @@
 /* 공통요소 */
 body {
+  font-family: 'Nanum Gothic', sans-serif;
   color: #333;
   font-size: 16;
   font-weight: 400;
   /* 전첵 적용될 줄 높이 설정 */
   line-height: 1.4;
   font-family: 'Nanum Gothic', sans-serif;
-  height: 3000px;
 }
 a {
   text-decoration: none;
