@@ -31,7 +31,6 @@ searchInputEl.addEventListener('blur', function(){
  */
 // 페이지 스크롤에 영향을 받는 요소들을 검색!
 const badgeEl = document.querySelector('header .badges')
-const toTopEl = document.querySelector('#to-top')
 // 페이지에 스크롤 이벤트를 추가!
 // 스크롤이 지나치게 자주 발생하는 것을 조절(throttle, 일부러 부하를 줌)
 //_.throttle(함수, 시간)으로 사용 가능
@@ -66,10 +65,19 @@ window.addEventListener('scroll', _.throttle(function () {
   }
   // 300 = 3초를 의미
 }, 300))
-// 상단으로 스크롤 버튼을 클릭하면,
-toTopEl.addEventListener('click', function () {
-  // 페이지 위치를 최상단으로 부드럽게(0.7초 동안) 이동.
-  gsap.to(window, .7, {
-    scrollTo: 0
+
+
+/**
+ * 순서대로 나타나는 기능
+ */
+// 나타날 요소들(.fade-in) 찾기.
+const fadeEls = document.querySelectorAll('.visual .fade-in')
+// 나타날 요소들을 하나씩 반복해서 처리!
+fadeEls.forEach(function (fadeEl, index) {
+  // 각 요소들을 순서대로(delay) 보여지게 함!
+  gsap.to(fadeEl, 1, {
+    // 0.7초 후에 두번째 요소는 1.4초 후에, 세번째는 2.1초 후에 보일 것이다.
+    delay: (index + 1) * .7, 
+    opacity: 1
   })
 })
