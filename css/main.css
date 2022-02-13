@@ -394,3 +394,103 @@ header .badges .badge {
 .notice .notice-line .inner__right .toggle-promotion .material-icons {
   font-size: 30px;
 }
+/*PROMOTION*/
+.notice .promotion {
+  /*width: auto;*/
+  height: 693px;
+  background-color: #f6f5ef;
+  position: relative;
+  overflow: hidden;
+  transition: height .4s;
+}
+.notice .promotion.hide {
+  height: 0;
+}
+.notice .promotion .swiper-container {
+  /* 819px 슬라이드 3개와 그 사이 여백 10px씩 = 2477px */
+  /* 스와이퍼 가로넓이를 함수로 자동으로 계산처리
+  819xp 크기의 요소 3개를 사이 20px로 계산 */
+  width: calc(819px * 3 + 20px);
+  height: 553px;
+  /* 사진을 확대해도 가운데로 보이도록 설정 */
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  /* -1238.5px */
+  /* 전체 크기의 / -2 절반 만큼을 나누기 */
+  margin-left: calc((819px * 3 + 20px) / -2);
+}
+.notice .promotion .swiper-slide {
+  position: relative;
+  opacity: .5;
+  transition: opacity 1s;
+}
+/* .swiper-slide-active 현재 액티브 중인 슬라이더 이미지 */
+/* 액티브 된 이미지만 좀 더 선명하게 설정 */
+.notice .promotion .swiper-slide-active {
+  opacity: 1;
+}
+.notice .promotion .swiper-slide .btn {
+  /*가운데 정렬을 위해서 넓이가 필요하지만 width: 130px;
+  위의 btn 클래스에 이미 정의되어 있어서 넣을 필요 없다.*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.notice .promotion .swiper-pagination {
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+/* 이미지 하단의 o o o o 버튼을 눌러서 이미지 이동 적용 */
+.notice .promotion .swiper-pagination .swiper-pagination-bullet {
+  background-color: transparent;
+  background-image: url("../images/promotion_slide_pager.png");
+  width: 13px;
+  height: 12px;
+  margin-right: 6px;
+  outline: none;
+}
+/* .swiper-pagination-bullet:last-child 마지막 라인에 여백을 없애기 위해 */
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {
+  margin-right: 0;
+}
+/* o o o o  동그라미의 색 또는 이미지를 적용하기*/
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_slide_pager_on.png");
+}
+/* 좌,우 화살표를 다중 선택자로 같은 css를 적용 */
+.notice .promotion .swiper-prev,
+.notice .promotion .swiper-next {
+  width: 42px;
+  height: 42px;
+  outline: none;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  /* Swiper Container 높이의 절반만큼 끌어올림 */
+  /* 버튼 높이의 절반만큼 추가로 끌어올림 */
+  top: 300px;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+}
+.notice .promotion .swiper-prev {
+  left: 50%;
+  margin-left: -480px;
+}
+.notice .promotion .swiper-next {
+  right: 50%;
+  margin-right: -480px;
+}
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-next:hover {
+  background-color: #333;
+  color: #fff;
+}
