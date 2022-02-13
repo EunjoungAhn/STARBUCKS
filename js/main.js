@@ -24,3 +24,52 @@ searchInputEl.addEventListener('blur', function(){
   //html속성을 지정한다.
   searchInputEl.setAttribute('placeholder', '');
 });
+
+//배지가 특정 위치에 있을때 사라지도록 설정
+/**
+ * 페이지 스크롤에 따른 요소 제어
+ */
+// 페이지 스크롤에 영향을 받는 요소들을 검색!
+const badgeEl = document.querySelector('header .badges')
+const toTopEl = document.querySelector('#to-top')
+// 페이지에 스크롤 이벤트를 추가!
+// 스크롤이 지나치게 자주 발생하는 것을 조절(throttle, 일부러 부하를 줌)
+//_.throttle(함수, 시간)으로 사용 가능
+//window는 우리가 보고 있는 화면 자체다.
+window.addEventListener('scroll', _.throttle(function () {
+  // 페이지 스크롤 위치가 500px이 넘으면.
+  if (window.scrollY > 500) {
+    // Badge 요소 숨기기!
+    gsap.to(badgeEl, .6, {
+      opacity: 0,
+      display: 'none'
+    })
+    // 상단으로 스크롤 버튼 보이기!
+    //gsap에서 제공하는 .to()라는 애니메이션 함수 사용]
+    //gsap.to(요소, 지속시간, 옵션)
+    //많은 자바스크립트 라이브러리가 객체 데이터를 사용한다.
+    gsap.to(toTopEl, .2, {
+      x: 0
+    })
+
+  // 페이지 스크롤 위치가 500px이 넘지 않으면.
+  } else {
+    // Badge 요소 보이기!
+    gsap.to(badgeEl, .6, {
+      opacity: 1,
+      display: 'block'
+    })
+    // 상단으로 스크롤 버튼 숨기기!
+    gsap.to(toTopEl, .2, {
+      x: 100
+    })
+  }
+  // 300 = 3초를 의미
+}, 300))
+// 상단으로 스크롤 버튼을 클릭하면,
+toTopEl.addEventListener('click', function () {
+  // 페이지 위치를 최상단으로 부드럽게(0.7초 동안) 이동.
+  gsap.to(window, .7, {
+    scrollTo: 0
+  })
+})

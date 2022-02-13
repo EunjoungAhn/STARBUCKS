@@ -6,6 +6,7 @@ body {
   /* 전첵 적용될 줄 높이 설정 */
   line-height: 1.4;
   font-family: 'Nanum Gothic', sans-serif;
+  height: 3000px;
 }
 a {
   text-decoration: none;
@@ -23,6 +24,7 @@ img{
 /* 헤더 */
 header {
   width: 100%;
+  /* position: fixed는 가로 너비가 최소한으로 줄어드려 한다. */
   position: fixed;
   top: 0;
   z-index: 9;
@@ -191,4 +193,20 @@ header .main-menu .item .item__contents .contents__texture h4 {
 header .main-menu .item .item__contents .contents__texture p {
   color: #64a70b;
   margin: 4px 0 14px;
+}
+
+/*BADGES*/
+header .badges {
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+header .badges .badge {
+  border-radius: 10px;
+  /* 이미지가 모서리 깍은 부분은 넘치지 않도록 */
+  overflow: hidden;
+  margin-bottom: 12px;
+  /* 미세하게 그림자 넣기 */
+  box-shadow: 4px 4px 10px rgba(0,0,0,.15);
+  cursor: pointer;
 }
