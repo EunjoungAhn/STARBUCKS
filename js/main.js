@@ -111,6 +111,8 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next' // 다음 버튼 선택자
   }
 })
+
+// 하단 슬라이더 적용
 new Swiper('.awards .swiper-container', {
   // direction: 'horizontal', // 수평 슬라이드
   autoplay: true, // 자동 재생 여부
