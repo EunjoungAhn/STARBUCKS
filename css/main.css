@@ -72,6 +72,37 @@ img{
   color: #333;
   background-color: #FFF;
 }
+/*BACK TO POSITION*/
+.back-to-position {
+  opacity: 0;
+  transition: 1s;
+}
+/* 원래의 상태로 돌아 온다면 왼쪽에서 오른쪽으로 이동하듯이 보일 것이다. */
+.back-to-position.to-right {
+  transform: translateX(-150px);
+}
+/* 원래의 상태로 돌아 온다면 오른쪽에서 왼쪽 이동하듯이 보일 것이다. */
+.back-to-position.to-left {
+  transform: translateX(150px);
+}
+/* 후손의 개념으로 show라는 class가 있어야, 원래 위치로 돌아온다. */
+.show .back-to-position {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* 너무 똑같은 시간에 나오기 때문에 순서대로 나오도록 딜레이를 적용 */
+.show .back-to-position.delay-0 {
+  transition-delay: 0s;
+}
+.show .back-to-position.delay-1 {
+  transition-delay: .3s;
+}
+.show .back-to-position.delay-2 {
+  transition-delay: .6s;
+}
+.show .back-to-position.delay-3 {
+  transition-delay: .9s;
+}
 /* 헤더 */
 header {
   width: 100%;
