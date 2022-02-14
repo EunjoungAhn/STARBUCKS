@@ -919,3 +919,22 @@ width 속성이 없어도 가운데 정렬이 가능하다. */
 footer .logo {
   margin: 30px auto 0;
 }
+
+/*SCROLL TO TOP*/
+#to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  /* 항상 다른 섹션들보다 위에 배치 */
+  z-index: 9;
+  width: 42px;
+  height: 42px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
