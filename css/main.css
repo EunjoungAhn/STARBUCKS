@@ -642,8 +642,8 @@ header .badges .badge {
   right: 0;
 }
 /*PICK YOUR FAVORITE*/
-/* 패럴랙스 적용 */
 .pick-your-favorite {
+  /* 패럴랙스 적용 */
   background-image: url("../images/favorite_bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -669,4 +669,58 @@ header .badges .badge {
 }
 .pick-your-favorite .text-group .description {
   margin-bottom: 40px;
+}
+/*RESERVE STORE*/
+.reserve-store {
+  /* 패럴랙스 적용 */
+  background-image: url("../images/reserve_store_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.reserve-store .inner {
+  height: 600px;
+  display: flex;
+  /* 수평 가운데 정렬 */
+  justify-content: center;
+  /* 수직 가운데 정렬 */
+  align-items: center;
+}
+.reserve-store .medal {
+  width: 334px;
+  height: 334px;
+  /* 원근 거리 추가하기 */
+  perspective: 600px;
+}
+/* 다중 선택자 */
+.reserve-store .medal .front,
+.reserve-store .medal .back {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+.reserve-store .medal .front {
+  /* 명시적인 작성, 다른 브라우저에서 작동 안될 수 있기에 
+  적어주는 것을 추천한다. */
+  transform: rotateY(0deg);
+}
+.reserve-store .medal:hover .front {
+  transform: rotateY(180deg);
+}
+.reserve-store .medal .back {
+  /* 뒤집기 */
+  transform: rotateY(-180deg);
+}
+.reserve-store .medal:hover .back {
+  transform: rotateY(0deg);
+}
+.reserve-store .medal .back .btn {
+  position: absolute;
+  top: 240px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
